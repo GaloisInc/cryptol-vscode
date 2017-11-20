@@ -2,8 +2,8 @@
     "name": "cryptol",
     "displayName": "cryptol",
     "description": "",
-    "version": "0.0.1",
-    "publisher": "j",
+    "version": "0.3.0",
+    "publisher": "jldodds",
     "engines": {
         "vscode": "^1.18.0"
     },
@@ -11,16 +11,25 @@
         "Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "cryptol",
-            "aliases": ["Cryptol", "cryptol"],
-            "extensions": [".cry"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "cryptol",
-            "scopeName": "source.cryptol",
-            "path": "./syntaxes/cryptol.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "cryptol",
+                "aliases": [
+                    "Cryptol",
+                    "cryptol"
+                ],
+                "extensions": [
+                    ".cry"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "cryptol",
+                "scopeName": "source.cryptol",
+                "path": "./syntaxes/cryptol.tmLanguage.json"
+            }
+        ]
     }
 }
