@@ -63,7 +63,7 @@
 				},
 				{
 					"name": "constant.numeric.cryptol",
-					"match": "\\b0[xX][0-9a-fA-F]+\\b"
+					"match": "\\b0[xX|bB][0-9a-fA-F]+\\b"
 				}
 			]
 		},
