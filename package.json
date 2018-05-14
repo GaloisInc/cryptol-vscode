@@ -2,7 +2,7 @@
     "name": "cryptol",
     "displayName": "Cryptol Highlighting",
     "description": "",
-    "version": "0.5.0",
+    "version": "0.5.2",
     "publisher": "jldodds",
     "engines": {
         "vscode": "^1.18.0"
