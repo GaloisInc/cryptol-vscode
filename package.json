@@ -2,11 +2,12 @@
     "name": "cryptol",
     "displayName": "Cryptol Highlighting",
     "description": "",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "publisher": "jldodds",
     "engines": {
         "vscode": "^1.18.0"
     },
+    "icon": "galois_github.png",
     "categories": [
         "Programming Languages"
     ],
