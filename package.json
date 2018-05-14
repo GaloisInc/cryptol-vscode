@@ -8,8 +8,12 @@
         "vscode": "^1.18.0"
     },
     "categories": [
-        "Languages"
+        "Programming Languages"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/GaloisInc/cryptol-vscode.git"
+    },
     "contributes": {
         "languages": [
             {
@@ -19,7 +23,8 @@
                     "cryptol"
                 ],
                 "extensions": [
-                    ".cry"
+                    ".cry",
+                    ".saw"
                 ],
                 "configuration": "./language-configuration.json"
             }
