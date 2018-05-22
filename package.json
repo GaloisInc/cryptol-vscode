@@ -2,7 +2,7 @@
     "name": "cryptol",
     "displayName": "Cryptol Highlighting",
     "description": "",
-    "version": "0.5.3",
+    "version": "0.5.4",
     "publisher": "jldodds",
     "engines": {
         "vscode": "^1.18.0"
@@ -15,6 +15,10 @@
         "type": "git",
         "url": "https://github.com/GaloisInc/cryptol-vscode.git"
     },
+    "activationEvents": [
+        "onLanguage:cryptol"
+    ],
+    "main": "./out/extension",
     "contributes": {
         "languages": [
             {
@@ -36,6 +40,52 @@
                 "scopeName": "source.cryptol",
                 "path": "./syntaxes/cryptol.tmLanguage.json"
             }
+        ],
+        "commands": [
+            {
+                "command": "cryptol.runInTerminal",
+                "title": "Cryptol: Run the current file in Cryptol"
+            },
+            {
+                "command": "cryptol.runSelectionInTerminal",
+                "title": "Cryptol: Run the current selection in Cryptol"
+            },
+            {
+                "command": "cryptol.typeSelectionInTerminal",
+                "title": "Cryptol: Type the current selection in Cryptol"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "cryptol.runInTerminal",
+                "key": "ctrl+shift+c",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "cryptol.runSelectionInTerminal",
+                "key": "ctrl+shift+e",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "cryptol.typeSelectionInTerminal",
+                "key": "ctrl+shift+t",
+                "when": "editorTextFocus"
+            }
         ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "tslint": "^5.8.0",
+        "vscode-languageclient": "^3.3.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
     }
 }
