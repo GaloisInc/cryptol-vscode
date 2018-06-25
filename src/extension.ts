@@ -16,14 +16,15 @@ export function activate(context: vscode.ExtensionContext) {
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
     console.log('Congratulations, your extension "cryptol" is now active!');
-
-    const cryptolTerminal: vscode.Terminal = vscode.window.createTerminal("Cryptol extension REPL", "cryptol");
+    let terminalPath:string = vscode.workspace.getConfiguration('cryptol').get('path','cryptol');
+    console.log(terminalPath);
+    const cryptolTerminal = vscode.window.createTerminal("Cryptol extension REPL", terminalPath);
     const cryptolTerminalOpen: boolean = true;
     const loadedFile = "";
 
     let cs : CryptolState = {cryptolTerminal: cryptolTerminal, cryptolTerminalOpen: cryptolTerminalOpen, loadedFile: loadedFile};
 
-    vscode.window.onDidCloseTerminal((terminal => { if (terminal == cryptolTerminal) { cs.cryptolTerminalOpen = false, cs.loadedFile=""} }));
+    vscode.window.onDidCloseTerminal((terminal => { if (terminal === cryptolTerminal) { cs.cryptolTerminalOpen = false, cs.loadedFile="";} }));
 
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
@@ -38,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
         prepareTerminal(cryptolTerminal, cryptolTerminalOpen);
         let currentEditor = vscode.window.activeTextEditor;
         if(currentEditor){
-            if(cs.loadedFile != currentEditor.document.fileName){
+            if(cs.loadedFile !== currentEditor.document.fileName){
                 runInTerminal(cs);
             }
             cryptolTerminal.sendText(selectionOrWord(currentEditor));
@@ -49,7 +50,7 @@ export function activate(context: vscode.ExtensionContext) {
         prepareTerminal(cryptolTerminal, cryptolTerminalOpen);
         let currentEditor = vscode.window.activeTextEditor;
         if(currentEditor){
-            if(cs.loadedFile != currentEditor.document.fileName){
+            if(cs.loadedFile !== currentEditor.document.fileName){
                 runInTerminal(cs);
             }
             cryptolTerminal.sendText(":t " + selectionOrWord(currentEditor));
@@ -61,7 +62,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 function selectionOrWord(currentEditor : vscode.TextEditor) : string {
     let selectedText = currentEditor.document.getText(currentEditor.selection);
-    if(selectedText==""){
+    if(selectedText===""){
         selectedText=
         currentEditor.document.getText(
             currentEditor.document.getWordRangeAtPosition(currentEditor.selection.active)
@@ -75,13 +76,15 @@ function runInTerminal(cs : CryptolState){
     let currentEditor = vscode.window.activeTextEditor;
     if(currentEditor){
         cs.cryptolTerminal.sendText(":l " + currentEditor.document.fileName);
-        cs.loadedFile = currentEditor.document.fileName
+        cs.loadedFile = currentEditor.document.fileName;
     }
 }
 
 function prepareTerminal(cryptolTerminal: vscode.Terminal, cryptolTerminalOpen : boolean) : vscode.Terminal {
     if(!cryptolTerminalOpen){
-        cryptolTerminal = vscode.window.createTerminal("Cryptol extension REPL", "cryptol");
+        let terminalPath:string = vscode.workspace.getConfiguration('cryptol').get('path','cryptol');
+        console.log(terminalPath);
+        cryptolTerminal = vscode.window.createTerminal("Cryptol extension REPL", terminalPath);
         cryptolTerminalOpen=true;
     }
     cryptolTerminal.show(true);

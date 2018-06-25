@@ -71,7 +71,16 @@
                 "key": "ctrl+shift+t",
                 "when": "editorTextFocus"
             }
-        ]
+        ],
+        "configuration": {
+            "properties": {
+                "cryptol.path": {
+                    "type": "string",
+                    "default": "cryptol",
+                    "description": "The path for the Cryptol REPL"
+                }
+            }
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
