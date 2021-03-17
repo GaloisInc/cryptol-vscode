@@ -16,7 +16,8 @@
         "url": "https://github.com/GaloisInc/cryptol-vscode.git"
     },
     "activationEvents": [
-        "onLanguage:cryptol"
+        "onLanguage:cryptol",
+        "onLanguage:saw"
     ],
     "main": "./out/extension",
     "contributes": {
@@ -28,7 +29,17 @@
                     "cryptol"
                 ],
                 "extensions": [
-                    ".cry",
+                    ".cry"
+                ],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "saw",
+                "aliases": [
+                    "SAW",
+                    "saw"
+                ],
+                "extensions": [
                     ".saw"
                 ],
                 "configuration": "./language-configuration.json"
