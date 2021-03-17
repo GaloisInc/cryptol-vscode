@@ -21,6 +21,8 @@
         ["'", "'"],
         ["{{", "}}"]
     ],
+    // auto close pairs even if there is no white space after the opening bracket and but before any character below
+    "autoCloseBefore":";:.,=}])> \n\t",
     // symbols that that can be used to surround a selection
     "surroundingPairs": [
         ["{", "}"],
@@ -29,5 +31,7 @@
         ["\"", "\""],
         ["'", "'"],
         ["{{", "}}"],
-    ]
+    ],
+    
+
 }
