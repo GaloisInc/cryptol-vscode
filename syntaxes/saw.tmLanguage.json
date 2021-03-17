@@ -1,0 +1,104 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "SAW",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#literals"
+		},
+		{
+			"include": "#operators"
+		}
+
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.saw",
+					"match": "\\b(if|where|then|else)\\b"
+				},
+				{
+					"name": "keyword.llvm.saw",
+					"match": "\\b(llvm_array|llvm_int)\\b"
+				},
+				{
+					"name": "keyword.crucible.saw",
+					"match": "\\b(crucible_alloc|crucible_execute_func|crucible_return|crucible_fresh_var|crucible_precond|crucible_postcond|crucible_points_to|crucible_term)\\b"
+				},
+				{
+					"name": "keyword.other.saw",
+					"match" : "\\b(llvm_load_module|eval_int|module|do|let)\\b"
+				}
+			]
+		},
+		"types":{
+			"patterns": [
+				{
+					"name": "storage.type.saw",
+					"match": "\\b(fin)\\b"
+				},
+				{
+					"name": "storage.type.saw",
+					"match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
+				}
+			]
+		},
+		"operators" : {
+			"patterns": [
+				{
+					"name": "keyword.operator.saw",
+					"match": "\\b(<-)\\b"
+				}
+			]
+		},
+		"literals": {
+			"patterns": [
+				{
+					"name": "constant.numeric.saw",
+					"match": "\\b\\d+\\b"
+				},
+				{
+					"name": "constant.numeric.saw",
+					"match": "\\b0[xX|bB][0-9a-fA-F]+\\b"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.saw",
+					"match": "\/\/+.*"
+				},
+				{
+					"name": "comment.block.documentation",
+					"begin": "\/\\*",
+					"end": "\\*\/"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.saw",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.saw",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.saw"
+}

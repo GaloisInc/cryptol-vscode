@@ -39,6 +39,11 @@
                 "language": "cryptol",
                 "scopeName": "source.cryptol",
                 "path": "./syntaxes/cryptol.tmLanguage.json"
+            },
+            {
+                "language": "saw",
+                "scopeName": "source.saw",
+                "path": "./syntaxes/saw.tmLanguage.json"
             }
         ],
         "commands": [
