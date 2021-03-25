@@ -69,6 +69,15 @@
             {
                 "command": "cryptol.typeSelectionInTerminal",
                 "title": "Cryptol: Type the current selection in Cryptol"
+            },
+            {
+                "command": "cryptol-vscode.enableCodeLens",
+                "title": "Enable CodeLens",
+                "category": "CodeLens"
+            },
+            {
+                "command": "cryptol-vscode.disableCodeLens",
+                "title": "Disable CodeLens"
             }
         ],
         "keybindings": [
@@ -96,14 +105,25 @@
                     "description": "The path for the Cryptol REPL"
                 }
             }
-        }
+        },
+        "snippets": [
+            {
+                "language": "cryptol",
+                "path": "./snippets/cryptol.snippets.json"
+            },
+            {
+                "language": "saw",
+                "path": "./snippets/saw.snippets.json"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+        "test": "npm run compile && node ./node_modules/vscode/bin/test",
+        "lint": "eslint . --ext .ts, .tsx"
     },
     "devDependencies": {
         "typescript": "^2.6.1",
@@ -111,6 +131,9 @@
         "tslint": "^5.8.0",
         "vscode-languageclient": "^3.3.0",
         "@types/node": "^7.0.43",
-        "@types/mocha": "^2.2.42"
+        "@types/mocha": "^2.2.42",
+        "@typescript-eslint/eslint-plugin": "^4.16.0",
+        "@typescript-eslint/parser": "^4.16.0",
+        "eslint": "^7.21.0"
     }
 }

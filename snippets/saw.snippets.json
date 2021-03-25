@@ -1,0 +1,44 @@
+{
+	"if": {
+		"prefix": "if",
+		"scope": "saw",
+		"body": [ "if (${1:condition}) \n then (${2:body1}) \n else (${3:body2})" ],
+		"description": "if-then-else snippet"
+	},
+	
+	"list-comp": {
+		"prefix": [ "lc", "list", "list comp" ],
+		"scope": "saw",
+		"body": [ "[ ${0: expression involving x}", "\t| x <- [1..$1]", "]" ],
+		"description": "list comprehension"
+	},
+
+	"conditions": {
+		"prefix": [ "cp", "crucible_p" ],
+		"scope": "saw",
+		"body": [ "crucible_${1|precondition,postcondition|} {{ ${2:condition} }};" ],
+		"description": "pre(post) condition"
+	},
+
+	"pointsto": {
+		"prefix": [ "cpt", "cpto", "crucible_poi"],
+		"scope": "saw",
+		"body": [ "crucible_points_to ${1:pointer} ${2:crucible_term};" ],
+		"description": "assign a term at the given pointer"
+	},
+
+	"func-exec": {
+		"prefix": [ "cef", "crucible_e" ],
+		"scope": "saw",
+		"body": [ "crucible_execute_func [ ${1:arguments} ];" ],
+		"description": "modelling function"
+	},
+
+	"return": {
+		"prefix": [ "cr", "cret", "crucible_r" ],
+		"scope": "saw",
+		"body": [ "crucible_return ${1:crucible_term};" ],
+		"description": "return a crucible term"
+	}
+
+}

@@ -1,0 +1,14 @@
+{
+	"if": {
+		"prefix": "if",
+		"scope": "cryptol",
+		"body": [ "if (${1:condition}) \n then (${2:body1}) \n else (${3:body2})"],
+		"description": "if-then-else snippet"
+	},
+	"list-comp": {
+		"prefix": "lc",
+		"scope": "cryptol",
+		"body": [ "[ ${1: expression involving x}", "\t| x <- [1..$2]", "]"],
+		"description": "list comprehension"
+	}
+}
