@@ -23,11 +23,12 @@ Cryptol language tools
 - added snippet support
 
     | SAW               | Cryptol        |
-    | :-------------:  |:-------------:|
+    | :------------- |:-------------:|
     | if                | if| 
-    | list comprehension (lc)  | list comprehension(lc)      | 
-    | crucible_pre/post cond (cp) |      |
+    | list comprehension (lc)  | list comprehension (lc)      | 
+    | crucible_pre/post cond (cp) |      
     | crucible_execute_func  (cef) |
     | crucible_points_to    (cpt) |
-    |  crucible_return        (cr) |
+    |  crucible_return        (cr) | 
+    | saw spec template (spec/saw-spec) |
 

@@ -14,31 +14,38 @@
 	},
 
 	"conditions": {
-		"prefix": [ "cp", "crucible_p" ],
+		"prefix": [ "cp", "crucible-p" ],
 		"scope": "saw",
 		"body": [ "crucible_${1|precondition,postcondition|} {{ ${2:condition} }};" ],
 		"description": "pre(post) condition"
 	},
 
 	"pointsto": {
-		"prefix": [ "cpt", "cpto", "crucible_poi"],
+		"prefix": [ "cpt", "cpto", "crucible-poi"],
 		"scope": "saw",
 		"body": [ "crucible_points_to ${1:pointer} ${2:crucible_term};" ],
 		"description": "assign a term at the given pointer"
 	},
 
 	"func-exec": {
-		"prefix": [ "cef", "crucible_e" ],
+		"prefix": [ "cef", "crucible-e" ],
 		"scope": "saw",
 		"body": [ "crucible_execute_func [ ${1:arguments} ];" ],
 		"description": "modelling function"
 	},
 
 	"return": {
-		"prefix": [ "cr", "cret", "crucible_r" ],
+		"prefix": [ "cr", "cret", "crucible-r" ],
 		"scope": "saw",
 		"body": [ "crucible_return ${1:crucible_term};" ],
 		"description": "return a crucible term"
+	},
+
+	"spec": {
+		"prefix": [ "spec", "saw-spec"],
+		"scope": "saw",
+		"body": [ "let ${0:function_name}_specs = do {", "\tp <- crucible_alloc ${1:llvm_type};", "\tcrucible_execute_func [ p ];", "\tlet res = {{${2:cryptol_function}}};", "\tcrucible_points_to p (crucible_term res);", "};"],
+		"description": "SAW spec template" 
 	}
 
 }
